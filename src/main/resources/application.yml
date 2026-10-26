@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: CleanTasks
+
+
+datasource:
+  url: ${DB_URL}
+  username: ${DB_USER}
+  password: ${DB_PASSWORD}
+
+server:
+  port: ${SERVER_PORT}
