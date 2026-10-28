@@ -1,0 +1,16 @@
+CREATE TABLE tb_users (
+  id BIGSERIAL PRIMARY KEY,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE tb_tasks (
+  id BIGSERIAL PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  description TEXT,
+  is_completed BOOLEAN NOT NULL DEFAULT FALSE,
+  created_at DATE NOT NULL DEFAULT CURRENT_DATE,
+  user_id BIGINT NOT NULL,
+
+  CONSTRAINT fk_tasks_user FOREIGN KEY (user_id) REFERENCES tb_users(id) ON DELETE CASCADE
+);
