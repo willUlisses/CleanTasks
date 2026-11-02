@@ -1,6 +1,5 @@
 package com.will.CleanTasks.infrastructure.persistence;
 
-import com.will.CleanTasks.core.entities.User;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -41,8 +40,16 @@ public class TaskEntity {
     @Column(nullable = false)
     private LocalDate createdAt;
 
-    @Column(nullable = false)
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    private UserEntity user;
+
+    public TaskEntity(String title, String description, boolean completed, LocalDate localDate, UserEntity user) {
+        this.title = title;
+        this.description = description;
+        this.isCompleted = completed;
+        this.createdAt = localDate;
+        this.user = user;
+    }
 }

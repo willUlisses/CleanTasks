@@ -1,6 +1,5 @@
 package com.will.CleanTasks.infrastructure.persistence;
 
-import com.will.CleanTasks.core.entities.Task;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -35,6 +34,6 @@ public class UserEntity {
     private String password;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-    private List<Task> tasks;
+    private List<TaskEntity> tasks;
 
 }
