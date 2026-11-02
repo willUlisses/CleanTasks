@@ -1,4 +1,7 @@
 package com.will.CleanTasks.infrastructure.dtos.request;
 
-public record CreateTaskRequest() {
+public record CreateTaskRequest(
+        String title,
+        String description
+) {
 }
