@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class TaskDtoMapper {
 
-    public static CreateTaskCommand toCommand(CreateTaskRequest request, Long userId) {
+    public CreateTaskCommand toCommand(CreateTaskRequest request, Long userId) {
         return new CreateTaskCommand(
                 request.title(),
                 request.description(),
@@ -17,7 +17,7 @@ public class TaskDtoMapper {
         );
     }
 
-    public static TaskResponse toResponse(Task task) {
+    public TaskResponse toResponse(Task task) {
         return new TaskResponse(
                 task.id(),
                 task.title(),
