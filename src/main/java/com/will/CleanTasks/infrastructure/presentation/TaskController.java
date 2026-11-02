@@ -3,6 +3,7 @@ package com.will.CleanTasks.infrastructure.presentation;
 import com.will.CleanTasks.core.entities.Task;
 import com.will.CleanTasks.core.usecases.CreateTaskCase;
 import com.will.CleanTasks.infrastructure.dtos.request.CreateTaskRequest;
+import com.will.CleanTasks.infrastructure.dtos.response.TaskResponse;
 import com.will.CleanTasks.infrastructure.mapper.TaskDtoMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -21,10 +22,10 @@ public class TaskController {
     private final TaskDtoMapper dtoMapper;
 
     @PostMapping()
-    public ResponseEntity<String> createTask(@RequestBody CreateTaskRequest req) {
+    public ResponseEntity<TaskResponse> createTask(@RequestBody CreateTaskRequest req) {
         Task newTask = createTask.execute(dtoMapper.toCommand(req, 1L));
 
-        return new ResponseEntity<>("TaskCreated", HttpStatus.CREATED);
+        return new ResponseEntity<>(dtoMapper.toResponse(newTask), HttpStatus.CREATED);
     }
 
 }
