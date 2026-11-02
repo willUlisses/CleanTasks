@@ -8,7 +8,7 @@ public record Task(
         String description,
         boolean isCompleted,
         LocalDate createdAt,
-        User user
+        Long userId
 ) {
 
 
