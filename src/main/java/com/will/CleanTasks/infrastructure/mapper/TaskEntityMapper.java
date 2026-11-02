@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class TaskEntityMapper {
 
-    public static TaskEntity toEntity(Task task, UserEntity user) {
+    public TaskEntity toEntity(Task task, UserEntity user) {
         return new TaskEntity(
                 task.id(),
                 task.title(),
@@ -19,7 +19,7 @@ public class TaskEntityMapper {
         );
     }
 
-    public static Task toDomain(TaskEntity entity) {
+    public Task toDomain(TaskEntity entity) {
         return new Task(
                 entity.getId(),
                 entity.getTitle(),
